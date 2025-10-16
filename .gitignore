@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# video files
+/public/*.mp4
+/public/*.mov
+/public/*.avi
+/public/*.webm
+/public/*.mkv
+/public/vidFinal.mp4
