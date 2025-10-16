@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Hyperspeed from './components/hyperspeed';
 import LetterGlitch from './components/letterglitch';
 import Terminal from './components/terminal';
+import GlitchText from './components/textglitch';
 
 export default function Home() {
   const [showTerminal, setShowTerminal] = useState(true);
@@ -20,7 +21,7 @@ export default function Home() {
       setTimeout(() => {
         setShowVideo(true);
       }, 2000);
-    }, 500);
+    }, 20);
   };
 
   return (
@@ -33,7 +34,7 @@ export default function Home() {
           centerVignette={true}
           outerVignette={false}
           smooth={true}
-          characters="MOSAIC INAUGURATION"
+          characters="01"
         />
       </div>
 
@@ -79,7 +80,13 @@ export default function Home() {
       </div>
 
       {/* Terminal Overlay */}
-      {showTerminal && <Terminal onStartSequence={handleStartSequence} />}
+      {showTerminal && (
+        <div className="fixed inset-0 z-20 flex items-center justify-center pointer-events-none">
+          <div className="pointer-events-auto">
+            <Terminal onStartSequence={handleStartSequence} />
+          </div>
+        </div>
+      )}
 
       {/* Video Player */}
       {showVideo && (
